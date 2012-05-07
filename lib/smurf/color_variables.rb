@@ -1,4 +1,5 @@
 require "color/css"
+require "sass"
 
 module Smurf
   mattr_accessor :sass_directory
