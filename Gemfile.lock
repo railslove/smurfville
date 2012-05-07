@@ -104,4 +104,5 @@ PLATFORMS
 DEPENDENCIES
   haml-rails
   jquery-rails
+  rake
   smurf!
