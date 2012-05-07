@@ -1,0 +1,1 @@
+Smurf.sass_directory = Rails.root.join('app', 'assets', 'stylesheets').to_s

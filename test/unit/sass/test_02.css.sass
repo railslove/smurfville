@@ -1,0 +1,209 @@
+
+// --- grid ---
+
+$blueprint-grid-columns: 12
+$blueprint-container-size: 940px
+$blueprint-grid-margin: 20px
+$blueprint-grid-width: ($blueprint-container-size + $blueprint-grid-margin) / $blueprint-grid-columns - $blueprint-grid-margin
+$blueprint-grid-padding: 12px
+
+$bgp: $blueprint-grid-padding
+
+// ---- colors ----
+
+$header-color: #000
+$font-color: #000
+$quiet-color: #869599
+
+$link-color: #17A2C1
+$blue: #17A2C1
+$link-hover-color: #17A2C1
+
+$fancy-placeholder-color: #22AEC9
+$blueprint-background-color: #E5F0F2
+
+// unused: $blueprint-background-color-dark: #A3CED7
+// unused: $blueprint-box-shadow: #85A7B0
+
+// standard double filled boxes
+$filled-outer-box-background: #ccecf2
+$filled-outer-box-background-new: $link-color
+$filled-inner-box-background: $blueprint-background-color
+$filled-inner-box-border-color: #B9C6D6
+
+// horizontal tab menus
+$ul-background: desaturate(#66c7d8, 20%)
+$ul-inner-shadow: #51a1ad
+$li-background: #e8f7fa
+$li-color-inactive: #fff
+$li-color-active: #000
+$li-color-hover: #247586
+
+$tab-color-stops: color_stops($ul-inner-shadow 3%, $ul-background 10%, $ul-background 98%, $ul-inner-shadow 100%)
+
+$border-color: #d3d2d2
+$arrow-border-color: #a1c2ca
+
+$light-blue: $blueprint-background-color
+$gold: #E9DE85
+$light-gold: #EEDF8E
+$light-green: #C5DC98
+$button-green: #78B518
+
+$imported_color: #e1b9c7
+
+$fresh-yellow-color: #ffb400
+
+// --- colors for form elements ---
+
+$input-field-values: #525252
+$input-border-color: #777
+
+// --- colors for buttons ---
+
+$button-color: #3A99AF
+
+// --- colors for flash messages ---
+
+$fancy-success-color: #3EB448
+$success-color: #78B518
+$success-background-color: #E7EFDC
+$success-border-color: #BBCAB3
+
+
+$error-color: #9F2B2B
+$error-background-color: #F2B9AF
+$error-border-color: #842424
+
+// image tabs
+
+$tabs-gradient-uppper: #85D3E0
+$tabs-gradient-mid: #4DBFD2
+$tabs-gradient-lower: #33B5CB
+
+$tabs-gradient-uppper-hover: #66BBC9
+$tabs-gradient-mid-hover: #35A5B8
+$tabs-gradient-lower-hover: #008DA5
+
+$tabs-gradient-uppper-unselected: #CAECF1
+$tabs-gradient-mid-unselected: #C1E9EF
+$tabs-gradient-lower-unselected: #A6DFE8
+
+$tabs-gradient-uppper-inactive: #E5E4E4
+$tabs-gradient-mid-inactive: #DCDBDB
+$tabs-gradient-lower-inactive: #D3D2D2
+
+$drop-shadow: #000
+
+// --- colors for tip box
+
+$tip-box-border-color: $success-color
+$tip-box-bg-color: $success-background-color
+
+// ---- radius ----
+
+// rebrush
+$outer-border-radius: 6px
+$inner-border-radius: 3px
+
+// used anymore? [2011-11]
+$large-border-radius: 15px
+$default-border-radius: 5px
+$small-border-radius: 3px
+
+
+
+
+// ---- fonts ----
+
+// font-families
+
+$text-font:   "Helvetica", "Arial", sans-serif
+$header-font: "Helvetica", "Arial", sans-serif
+
+// font-sizes
+
+$small-font-base: 11px
+$text-font-base: 12px
+$button-font-base: 15px
+$header-font-base: 17px
+$gigantic-font-base: 36px
+
+// --- dimensions ---
+
+$button-height: 30px
+$button-height-tiny: 22px
+$button-height-small: 26px
+$button-height-large: 35px
+
+// place photo
+
+$photo-place-small-width: 130px
+$photo-place-small-height: 87px
+
+$photo-place-collection-width: 192px
+$photo-place-collection-height: 144px
+
+$photo-place-medium-width: 220px
+$photo-place-medium-height: 147px
+
+$photo-place-large-width: 588px
+$photo-place-large-height: 392px
+
+$photo-place-showcase-width:  $photo-place-large-width  - 2px
+$photo-place-showcase-height: $photo-place-large-height - 2px
+
+
+// user
+
+$photo-user-thumb-width:    46px
+$photo-user-thumb-height:   46px
+$photo-user-small-width:    60px
+$photo-user-small-height:   60px
+$photo-user-medium-width:  130px
+$photo-user-medium-height: 130px
+$photo-user-large-width:   270px
+$photo-user-large-height:  270px
+
+
+
+
+// ------ REBRUSH ----------
+
+$black-grey: #231F20
+$dark-grey: #5A5758
+$medium-dark-grey: #918F8F
+$medium-grey: #A7A5A6
+$normal-grey: #B8B7B7
+$soft-grey: #D3D2D2
+$light-grey: #E4E4E4
+$lightest-grey: #EEEDEE
+
+$headline-grey: $medium-dark-grey
+$main-blue: #00A2BE
+$darker-blue: #33B5CB
+$dark-blue: #66C7D8
+$medium-dark-blue: #8CD5E2
+$medium-blue: #A6DFE8
+$normal-blue: #CCECF2
+$soft-blue: #E0F4F7
+$light-blue: #EBF8FA
+$lightest-blue: #F2FAFC
+$hover-blue: #008DA5
+
+// --- color set as of September 2011 ---
+
+$dark-border-blue: $main-blue
+$dark-border-grey: $dark-grey
+$hover-red: #efccc6
+$swimming-pool-blue: #a5dee6
+$green-button-color: #78b519
+$silent-grey-border: $soft-grey
+$silent-grey: $light-grey
+$light-border-color: $dark-blue
+
+$highlight-yellow: #fffdb0
+
+// --- Re-Re-Re-Brush
+
+$red: #B30000

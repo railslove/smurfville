@@ -1,0 +1,14 @@
+-if @color_vars
+  %ul.smurf-color-list
+    -@color_vars[:colors].each do |color|
+      -color_value = color[0]
+      -color_variables = color[1]
+      %li.smurf-color-item{style: "background-color: #{color[0]}; color: #{foreground_color(color[0])}"}
+        %ul
+          - color_variables.each do |color_variable|
+            %li
+              = color_variable
+              -if @color_vars[:variable_mappings][color_variable]
+                = ": "
+                = @color_vars[:variable_mappings][color_variable].join(",")
+              -# TODO: we might need to go to deeper levels

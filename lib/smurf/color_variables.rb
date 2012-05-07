@@ -1,14 +1,15 @@
 require "color/css"
 
 module Smurf
-  class ColorVariables
-    mattr_accessor :sass_directory
+  mattr_accessor :sass_directory
 
-    def self.parse_directory(directory = @@sass_directory)
+  class ColorVariables
+
+    def self.parse_sass_directory(directory = Smurf.sass_directory)
       complete_hash = {colors: {}, variable_mappings: {}}
 
       Dir.glob("#{directory}/**/*").each do |file|
-        if file.end_with?(".sass", ".scss") && file_hash = parse_file(file)
+        if file.end_with?(".sass", ".scss") && file_hash = parse_sass_file(file)
           [:colors, :variable_mappings].each do |key|
             # merges hashes, with doing an array union where applicable
             complete_hash[key].merge!(file_hash[key]) { |key, v1, v2|
@@ -26,7 +27,7 @@ module Smurf
     end
 
     # parses Sass file and returns hash with colors and variable_mappings (or false)
-    def self.parse_file(file, options = {})
+    def self.parse_sass_file(file, options = {})
       colors = {}
       variable_mappings = {}
 
@@ -36,7 +37,7 @@ module Smurf
           variable_name = parts[0]
           value = parts[1].gsub(";", "").strip
 
-          if color = is_color?(value)
+          if color = parse_color(value)
             (colors[color.html] ||= []) << variable_name
 
           elsif value.start_with? "$"
@@ -53,7 +54,9 @@ module Smurf
       end 
     end
 
-    def self.is_color?(color)
+    def self.parse_color(color)
+      return false  unless color.is_a? String
+      
       if color.include? "#"
         Color::RGB.from_html(color) rescue false
       elsif Color::CSS[color]
@@ -61,6 +64,14 @@ module Smurf
       else
         false
       end
+    end
+
+    # returns readable foreground color ("black" or "white") based on passed in color
+    def self.foreground_color(color)
+      if color = parse_color(color)
+        return "black"  if color.brightness > 0.5
+      end
+      return "white"
     end
   end
 end
