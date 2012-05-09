@@ -1,14 +1,16 @@
 SMURF
 =====
 
-*S*calable, *M*odular, re*U*sable *R*ails *F*rontends
+**S**calable, **M**odular, re**U**sable **R**ails **F**rontends
 
 [![Build Status](https://secure.travis-ci.org/railslove/smurf.png?branch=master)](http://travis-ci.org/railslove/smurf)
 
-The name and the philosophy of SMURF are heavily influenced by the SMACSS approach by Jonathan Snook (@snookca) (Scalable Modular Architecture for CSS)
+The name and the philosophy of SMURF are heavily influenced by the [SMACSS](http://smacss.com) approach by Jonathan Snook ([@snookca](https://twitter.com/snookca)) which stands for Scalable Modular Architecture for CSS.
 
 
 # SMURF gem
+
+Currently the gem can parse your Sass files and display all the color variables your are using in a nice styleguide.
 
 ## Prerequisites
 
@@ -18,7 +20,7 @@ The name and the philosophy of SMURF are heavily influenced by the SMACSS approa
 
 ## Installation
 
-Add this to your Gemfile and restart your sever:
+Add this to your `Gemfile`, run `bundle install`:
 
     gem 'smurf'
     
@@ -33,5 +35,5 @@ Mount the SMURF gem in your routes:
     
     mount Smurf::Engine => "/smurf"
     
-Afterwards you should be able to access the SMURF pages, e.g. `yourapp.com/smurf/styleguide/colors`
+Restart your server and you should be able to access the SMURF pages, e.g. `yourapp.com/smurf/styleguide/colors`
 
