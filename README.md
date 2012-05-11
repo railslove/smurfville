@@ -3,6 +3,8 @@ SMURF
 
 **S**calable, **M**odular, re**U**sable **R**ails **F**rontends
 
+![SMURF](https://github.com/railslove/smurf/raw/master/app/assets/images/smurf/smurf.png)
+
 [![Build Status](https://secure.travis-ci.org/railslove/smurf.png?branch=master)](http://travis-ci.org/railslove/smurf)
 
 The name and the philosophy of SMURF are heavily influenced by the [SMACSS](http://smacss.com) approach by Jonathan Snook ([@snookca](https://twitter.com/snookca)) which stands for Scalable Modular Architecture for CSS.
