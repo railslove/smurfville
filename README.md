@@ -29,7 +29,7 @@ As a first step our SMURF gem can already render a living stylguide of all the c
 
 An example for a similar tool could be [kss-rails](https://github.com/dewski/kss-rails)
 
-# Goal 3: Developing modules in the browser
+## Goal 3: Developing modules in the browser
 
 Once we have a tool to easily render all our modules the next step is to add the ability to write/change/tweak them right within the browser.  This would have the advantage that you could open the module editor in different browsers to directly account for x-browser differences and you don't have to hit reload again to see the effect of your changes to the frontend code.  One could see it as an equivalent for vim+tmux+autotest for frontend development.
 
