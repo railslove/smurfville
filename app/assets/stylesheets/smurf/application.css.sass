@@ -1,19 +1,38 @@
 //= require_self
 
 $border-color: silver
+$padding: 10px
+
+html, body, ul, li, p
+  font-family: sans-serif
+  font-size: 13px
+
+strong
+  font-weight: bold
 
 .smurf-color-list
   padding: 0
-  font-family: sans-serif
-  ul
-    padding: 0
-  li
+  > li
     list-style-type: none
+    float: left
+    width: 300px
+    min-height: 80px
+    border: 1px solid $border-color
+    padding: $padding
+    margin: $padding
+    > ul
+      padding: 0
 
-.smurf-color-item
-  float: left
-  width: 200px
-  border: 1px solid $border-color
-  padding: 10px
-  margin: 10px
+.smurf-color-var
+  list-style-type: none
+  overflow: hidden
+  margin-bottom: $padding
+  > .smurf-color-var--name
+    float: left
+  > .smurf-color-var--mappings
+    padding: 0
+    float: right
+    > li
+      text-align: right
+      list-style-type: none
 

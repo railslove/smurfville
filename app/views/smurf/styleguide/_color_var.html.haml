@@ -1,0 +1,7 @@
+%li.smurf-color-var
+  %strong.smurf-color-var--name= color_var
+  -if @color_vars[:variable_mappings][color_var]
+    %ul.smurf-color-var--mappings
+      -@color_vars[:variable_mappings][color_var].each do |color_mapping|
+        %li= color_mapping
+        -# TODO: we might need to go to deeper levels
