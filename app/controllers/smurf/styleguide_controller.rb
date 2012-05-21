@@ -1,7 +1,7 @@
 module Smurf
   class StyleguideController < ApplicationController
     def colors
-      @color_vars = Smurf::ColorVariables.parse_sass_directory
+      @parser = Smurf::ColorVariableParser.new.parse
     end
 
     def partials
