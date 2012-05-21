@@ -10,6 +10,5 @@ module Smurf
       end
       return "white"
     end
-
   end
 end

@@ -2,18 +2,47 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
 class ColorVariablesTest < ActiveSupport::TestCase
 
-  test "parse_sass_file" do
+  # test "parse_sass_file test_01" do
+  #   parser = Smurf::ColorVariableParser.new
+  #   parser.parse_sass_file "#{File.dirname(__FILE__)}/sass/test_01.sass"
+
+  #   assert_equal ["$white", "$another-white"], parser.colors["#ffffff"]
+  #   assert_equal ["$black"], parser.colors["#000000"]
+  #   assert_equal ["$green"], parser.colors["#008000"]
+
+  #   assert_equal ["$light-color"], parser.variable_mappings["$white"]
+  #   assert_equal ["$dark-color"], parser.variable_mappings["$black"]
+  #   assert_equal ["$special"], parser.variable_mappings["$green"]
+  # end
+
+  # ---- parse_variable_usage ----
+
+  test "parse_variable_usage" do
     parser = Smurf::ColorVariableParser.new
-    parser.parse_sass_file "#{File.dirname(__FILE__)}/sass/test_01.sass"
+    parser.parse_variable_usage "#{File.dirname(__FILE__)}/sass/test_01.sass"
 
-    assert_equal ["$white", "$another-white"], parser.colors["#ffffff"]
-    assert_equal ["$black"], parser.colors["#000000"]
-    assert_equal ["$green"], parser.colors["#008000"]
+    variable_counts = [
+      ["$green",   2],
+      ["$white",   2],
+      ["$special", 3],
+      ["$foo",     nil]
+    ]
 
-    assert_equal ["$light-color"], parser.variable_mappings["$white"]
-    assert_equal ["$dark-color"], parser.variable_mappings["$black"]
-    assert_equal ["$special"], parser.variable_mappings["$green"]
+    variable_counts.each do |count_pair|
+      assert_equal count_pair[1], parser.variable_usage[count_pair[0]]
+    end
   end
+
+  test "print_variable_usage_count_for" do
+    parser = Smurf::ColorVariableParser.new
+    parser.variable_usage = {"$green" => 1, "$special" => 2}
+
+    assert_equal 0, parser.print_variable_usage_count_for("$green")
+    assert_equal 1, parser.print_variable_usage_count_for("$special")
+    assert_equal 0, parser.print_variable_usage_count_for("$foo")
+  end
+
+  # ---- parse_color ----
 
   test "parse_color with valid colors" do
     equal_colors = [

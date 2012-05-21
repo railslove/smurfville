@@ -1,6 +1,6 @@
--if @color_vars
+-if @parser
   %ul.smurf-color-list
-    -@color_vars[:colors].each do |color|
+    -@parser.colors.each do |color|
       -color_value = color[0]
       -color_vars = color[1]
       %li{style: "background-color: #{color[0]}; color: #{foreground_color(color[0])}"}

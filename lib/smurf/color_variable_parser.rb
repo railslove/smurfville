@@ -16,7 +16,10 @@ module Smurf
 
     def parse_sass_directory(directory = sass_directory)
       Dir.glob("#{directory}/**/*").each do |file|
-        parse_sass_file(file)  if file.end_with?(".sass", ".scss")
+        if file.end_with?(".sass", ".scss")
+          parse_sass_file(file)
+          parse_variable_usage(file)
+        end
       end
     end
     alias_method :parse, :parse_sass_directory
@@ -38,6 +41,21 @@ module Smurf
           end
         end
       end
+    end
+
+    def parse_variable_usage(file)
+      grep_output = `grep -iG "\$" #{file}`
+      grep_output.each_line do |line|
+        matches = line.scan(/\$[\w-]*/)
+        matches.each do |match|
+          self.variable_usage[match] ||= 0
+          self.variable_usage[match] += 1
+        end
+      end
+    end
+
+    def print_variable_usage_count_for(color)
+      self.variable_usage[color] - 1  rescue 0
     end
 
     def self.parse_color(color)
