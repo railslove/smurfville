@@ -20,7 +20,7 @@ module Smurf
         end
       end
       
-      unless complete_hash[:colors].empty? && complete_hash[:colors].empty?
+      unless complete_hash[:colors].empty? && complete_hash[:variable_mappings].empty?
         complete_hash
       else
         false
