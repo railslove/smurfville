@@ -50,7 +50,7 @@ Currently the gem can parse your Sass files and display all the color variables 
 
 Add this to your `Gemfile`, run `bundle install`:
 
-    gem 'smurf'
+    gem 'smurf', git: 'git://github.com/railslove/smurf.git'
     
 Add an initializer to your Rails project in which you tell SMURF where it can find your Sass files:
 
