@@ -11,7 +11,7 @@ gem "haml-rails"
 gem "rake"
 
 group :development do
-  gem "debugger"
+  #gem "debugger"
 end
 
 # Declare any dependencies that are still in development here instead of in
