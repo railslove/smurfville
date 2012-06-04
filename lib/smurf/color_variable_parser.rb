@@ -2,8 +2,6 @@ require "color/css"
 require "sass"
 
 module Smurf
-  mattr_accessor :sass_directory
-
   class ColorVariableParser
     attr_accessor :colors, :variable_mappings, :variable_usage, :sass_directory
 

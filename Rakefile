@@ -38,3 +38,9 @@ end
 
 
 task :default => :test
+
+# task :testing do
+#   parser = Smurf::TypographyParser.new
+#   parser.parse "/home/jk/projects/smurf/test/unit/sass/typography.sass"
+#   puts parser.typographies.inspect
+# end

@@ -5,7 +5,7 @@ PATH
       color
       haml
       rails (~> 3.1)
-      sass (> 3.2.alpha)
+      sass (~> 3.1)
 
 GEM
   remote: http://rubygems.org/

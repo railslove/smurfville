@@ -10,5 +10,10 @@ module Smurf
 
     def helper
     end
+
+    def typography
+      # @parser = Smurf::TypographyParser.new
+      # @parser.parse
+    end
   end
 end

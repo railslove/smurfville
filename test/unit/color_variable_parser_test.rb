@@ -2,24 +2,11 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
 class ColorVariablesTest < ActiveSupport::TestCase
 
-  # test "parse_sass_file test_01" do
-  #   parser = Smurf::ColorVariableParser.new
-  #   parser.parse_sass_file "#{File.dirname(__FILE__)}/sass/test_01.sass"
-
-  #   assert_equal ["$white", "$another-white"], parser.colors["#ffffff"]
-  #   assert_equal ["$black"], parser.colors["#000000"]
-  #   assert_equal ["$green"], parser.colors["#008000"]
-
-  #   assert_equal ["$light-color"], parser.variable_mappings["$white"]
-  #   assert_equal ["$dark-color"], parser.variable_mappings["$black"]
-  #   assert_equal ["$special"], parser.variable_mappings["$green"]
-  # end
-
   # ---- parse_variable_usage ----
 
   test "parse_variable_usage" do
     parser = Smurf::ColorVariableParser.new
-    parser.parse_variable_usage "#{File.dirname(__FILE__)}/sass/test_01.sass"
+    parser.parse_variable_usage "#{File.dirname(__FILE__)}/sass/colors_01.sass"
 
     variable_counts = [
       ["$green",   2],

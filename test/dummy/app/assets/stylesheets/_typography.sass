@@ -1,0 +1,37 @@
+$default-font-family: "Helvetica", "Arial", sans-serif
+
+// these could become important if we should decide to use compass vertical rhythm
+$relative-font-sizing : false
+$base-line-height     : 20px
+
+$small-font-size      : 11px
+$base-font-size       : 13px
+$big-font-size        : 15px
+
+$input-field-font-size: $big-font-size
+
+$header-font-small    : 17px
+$header-font-default  : 18px
+$header-font-big      : 25px
+$header-font-gigantic : 36px
+
+// styleguide_typography:
+//   mixin: "headline-text"
+//   params:
+//     "$font-size":  ["$header-font-small", "$header-font-default", "$header-font-big", "$header-font-gigantic"]
+//     "$font-color": ["$text-color", "$light-text-color"]
+=headline-text($font-size: $header-font-default, $font-color: $text-color)
+  font-family: $default-font-family
+  font-weight: bold
+  color: $font-color
+  font-size: $font-size
+
+// styleguide_typography:
+//   mixin: default-text
+//   params:
+//     "$font-size": ["$small-font-size", "$base-font-size", "$big-font-size"]
+//     "$font-color": ["$text-color", "$light-text-color"]
+=default-text($font-size: $base-font-size, $font-color: $text-color)
+  font-family: $default-font-family
+  color: $font-color
+  font-size: $font-size
