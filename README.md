@@ -16,22 +16,22 @@ These are the main goals behind SMURF:
 
 ## Goal 1:  Conventions
 
-Analog to what [SMACSS](http://smacss.com) does for modular CSS we want to establish conventions for naming, structure, filenames of all modular frontend code.  There should be a specific partial, helper or similar for each frontend module and it should be immediately clear how it needs to be named and where the files should be put.
+Analogous to what [SMACSS](http://smacss.com) does for modular CSS we want to establish conventions for naming, structure, and filenames of all modular frontend code.  There should be a specific partial, helper or similar for each frontend module and it should be immediately clear how it needs to be named and where the files should be put.
 
-This goal is achieved when it is completely clear where all the necessary parts of a frontend modul are located.
+This goal is achieved when it is completely clear where all the necessary parts of a frontend module are located.
 
 
 ## Goal 2:  Living Styleguide
 
-Based on the conventions from Goal 1 we are creating tools that parse our Rails projects and render anything that makes sense into a living styleguide.  This would include an overview of all the modules with their different submodules and states and hopefully also some JS interactions.  The two goals behind this would be **a)** to have a tool for something like **"visual unit testing"** and **b)** to have a **communication device** for any kind of **design work** within a project.
+Based on the conventions from Goal 1 we are creating tools that parse our Rails projects and render anything that makes sense into a living styleguide. This would include an overview of all the modules with their different submodules and states and hopefully also some JS interactions. The two goals behind this would be **a)** to have a tool for something like **"visual unit testing"** and **b)** to have a **communication device** for any kind of **design work** within a project.
 
-As a first step our SMURF gem can already render a living stylguide of all the color variables in your Sass code.
+As a first step, our SMURF gem can already render a living styleguide of all the color variables in your Sass code.
 
 An example for a similar tool could be [kss-rails](https://github.com/dewski/kss-rails)
 
 ## Goal 3: Developing modules in the browser
 
-Once we have a tool to easily render all our modules the next step is to add the ability to write/change/tweak them right within the browser.  This would have the advantage that you could open the module editor in different browsers to directly account for x-browser differences and you don't have to hit reload again to see the effect of your changes to the frontend code.  One could see it as an equivalent for vim+tmux+autotest for frontend development.
+Once we have a tool to easily render all our modules, the next step is to add the ability to write/change/tweak them right within the browser. This would have the advantage that you could open the module editor in different browsers to directly account for x-browser differences and you don't have to hit reload again to see the effect of your changes to the frontend code. One could see it as an equivalent for vim+tmux+autotest for frontend development.
 
 (technology ideas: [voyage-editor](http://voyage-editor.herokuapp.com/), [cloud9](http://c9.io), [fivetastic](https://github.com/makevoid/fivetastic))
 
@@ -64,4 +64,3 @@ Mount the SMURF gem in your routes:
     mount Smurf::Engine => "/smurf"
     
 Restart your server and you should be able to access the SMURF pages, e.g. `yourapp.com/smurf/styleguide/colors`
-
