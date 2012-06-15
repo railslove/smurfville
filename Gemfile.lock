@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smurfville (0.0.4)
+    smurfville (0.0.5)
       color
       haml
       rails (~> 3.1)
