@@ -1,9 +1,9 @@
-Smurville
+Smurfville
 =========
 
 Smurfville is the home of SMURF:  **S**calable, **M**odular, re**U**sable **R**ails **F**rontends
 
-![SMURF](https://github.com/railslove/smurfville/raw/master/app/assets/images/smurf/smurf.png)
+![SMURF](https://github.com/railslove/smurfville/raw/master/app/assets/images/smurfville/smurf.png)
 
 [![Build Status](https://secure.travis-ci.org/railslove/smurfville.png?branch=master)](http://travis-ci.org/railslove/smurfville)
 
@@ -57,7 +57,7 @@ Add an initializer to your Rails project in which you tell Smurfville where it c
 
     # config/initializers/smurfville.rb
 
-    if defined?(Smurfvill) != nil
+    if defined?(Smurfville) != nil
       Smurf.sass_directory = Rails.root.join('app', 'assets', 'stylesheets').to_s
     end
     
@@ -65,7 +65,7 @@ Mount the `Smurfville::Engine` in your routes:
 
     # config/routes.rb
 
-    if defined?(Smurfvill) != nil
+    if defined?(Smurfville) != nil
       mount Smurfvill::Engine => "/smurfville"
     end
     
