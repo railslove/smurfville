@@ -1,5 +1,7 @@
 module Smurfville
   class StyleguideController < ApplicationController
+    layout "smurfville/application"
+
     def colors
       @parser = Smurfville::ColorVariableParser.new
       @parser.parse
