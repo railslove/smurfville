@@ -1,11 +1,11 @@
-SMURF
-=====
+Smurville
+=========
 
-**S**calable, **M**odular, re**U**sable **R**ails **F**rontends
+Smurfville is the home of SMURF:  **S**calable, **M**odular, re**U**sable **R**ails **F**rontends
 
-![SMURF](https://github.com/railslove/smurf/raw/master/app/assets/images/smurf/smurf.png)
+![SMURF](https://github.com/railslove/smurfville/raw/master/app/assets/images/smurf/smurf.png)
 
-[![Build Status](https://secure.travis-ci.org/railslove/smurf.png?branch=master)](http://travis-ci.org/railslove/smurf)
+[![Build Status](https://secure.travis-ci.org/railslove/smurfville.png?branch=master)](http://travis-ci.org/railslove/smurfville)
 
 The name and the philosophy of SMURF are heavily influenced by the [SMACSS](http://smacss.com) approach by Jonathan Snook ([@snookca](https://twitter.com/snookca)) which stands for Scalable Modular Architecture for CSS.
 
@@ -36,7 +36,7 @@ Once we have a tool to easily render all our modules, the next step is to add th
 (technology ideas: [voyage-editor](http://voyage-editor.herokuapp.com/), [cloud9](http://c9.io), [fivetastic](https://github.com/makevoid/fivetastic))
 
 
-# SMURF Gem
+# Smurfville Gem
 
 Currently the gem can parse your Sass files and display all the color variables your are using in a nice styleguide.
 
@@ -45,22 +45,28 @@ Currently the gem can parse your Sass files and display all the color variables 
 * Rails >3.1
 * Sass
 * Haml
+* Color gem
 
 ## Installation
 
 Add this to your `Gemfile`, run `bundle install`:
 
-    gem 'smurf-rails'
+    gem 'smurfville'
     
-Add an initializer to your Rails project in which you tell SMURF where it can find your Sass files:
+Add an initializer to your Rails project in which you tell Smurfville where it can find your Sass files:
 
-    # config/initializers/smurf.rb
-    Smurf.sass_directory = Rails.root.join('app', 'assets', 'stylesheets').to_s
+    # config/initializers/smurfville.rb
+
+    if defined?(Smurfvill) != nil
+      Smurf.sass_directory = Rails.root.join('app', 'assets', 'stylesheets').to_s
+    end
     
-Mount the SMURF gem in your routes:
+Mount the `Smurfville::Engine` in your routes:
 
     # config/routes.rb
+
+    if defined?(Smurfvill) != nil
+      mount Smurfvill::Engine => "/smurfville"
+    end
     
-    mount Smurf::Engine => "/smurf"
-    
-Restart your server and you should be able to access the SMURF pages, e.g. `yourapp.com/smurf/styleguide/colors`
+Restart your server and you should be able to access the SMURF pages, e.g. `yourapp.com/smurfville/colors`
