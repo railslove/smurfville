@@ -1,7 +1,7 @@
-module Smurf
+module Smurfville
   class StyleguideController < ApplicationController
     def colors
-      @parser = Smurf::ColorVariableParser.new
+      @parser = Smurfville::ColorVariableParser.new
       @parser.parse
     end
 
@@ -12,7 +12,7 @@ module Smurf
     end
 
     def typography
-      # @parser = Smurf::TypographyParser.new
+      # @parser = Smurfville::TypographyParser.new
       # @parser.parse
     end
   end

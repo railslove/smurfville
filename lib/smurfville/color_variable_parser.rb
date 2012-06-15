@@ -1,11 +1,11 @@
 require "color/css"
 require "sass"
 
-module Smurf
+module Smurfville
   class ColorVariableParser
     attr_accessor :colors, :variable_mappings, :variable_usage, :sass_directory
 
-    def initialize(sass_directory = Smurf.sass_directory)
+    def initialize(sass_directory = Smurfville.sass_directory)
       @colors            = {}
       @variable_mappings = {}
       @variable_usage    = {}
@@ -30,7 +30,7 @@ module Smurf
           variable_name       = variable_node_parts[0]
           value               = variable_node_parts[1].gsub(";", "").strip
 
-          if color = Smurf::ColorVariableParser.parse_color(value)
+          if color = Smurfville::ColorVariableParser.parse_color(value)
             (self.colors[color.html] ||= []) << variable_name
 
           elsif value.start_with? "$"

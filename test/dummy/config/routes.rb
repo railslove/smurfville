@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount Smurf::Engine => "/smurf"
+  mount Smurfville::Engine => "/smurfville"
 end

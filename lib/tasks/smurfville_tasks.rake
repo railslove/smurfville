@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :smurf do
+# task :smurfville do
 #   # Task goes here
 # end

@@ -1,7 +1,7 @@
 require 'test_helper'
 
-class SmurfTest < ActiveSupport::TestCase
+class SmurfvilleTest < ActiveSupport::TestCase
   test "truth" do
-    assert_kind_of Module, Smurf
+    assert_kind_of Module, Smurfville
   end
 end

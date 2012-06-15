@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    smurf-rails (0.0.3)
+    smurfville (0.0.3)
       color
       haml
       rails (~> 3.1)
@@ -105,4 +105,4 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   rake
-  smurf-rails!
+  smurfville!

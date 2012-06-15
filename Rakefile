@@ -14,7 +14,7 @@ end
 
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title    = 'Smurf'
+  rdoc.title    = 'Smurfville'
   rdoc.options << '--line-numbers'
   rdoc.rdoc_files.include('README.rdoc')
   rdoc.rdoc_files.include('lib/**/*.rb')
@@ -40,7 +40,7 @@ end
 task :default => :test
 
 # task :testing do
-#   parser = Smurf::TypographyParser.new
+#   parser = Smurfville::TypographyParser.new
 #   parser.parse "/home/jk/projects/smurf/test/unit/sass/typography.sass"
 #   puts parser.typographies.inspect
 # end

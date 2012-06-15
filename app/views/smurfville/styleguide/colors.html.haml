@@ -1,10 +1,10 @@
 -if @parser
-  %ul.smurf-color-list
+  %ul.smurfville-color-list
     -@parser.colors.each do |color|
       -color_value = color[0]
       -color_vars = color[1]
       %li{style: "background-color: #{color[0]}; color: #{foreground_color(color[0])}"}
-        .smurf-html-color= color[0]
+        .smurfville-html-color= color[0]
         %ul
           -color_vars.each do |color_var|
             = render partial: "color_var", locals: {color_var: color_var}

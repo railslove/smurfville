@@ -1,10 +1,10 @@
 require "sass"
 
-module Smurf
+module Smurfville
   class TypographyParser
     attr_accessor :typographies, :typography_sass_file
 
-    def initialize(typography_sass_file = Smurf.typography_sass_file)
+    def initialize(typography_sass_file = Smurfville.typography_sass_file)
       @typographies = {}
       @typography_sass_file = typography_sass_file
     end

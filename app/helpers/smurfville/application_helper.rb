@@ -1,4 +1,4 @@
-module Smurf
+module Smurfville
   module ApplicationHelper
   end
 end

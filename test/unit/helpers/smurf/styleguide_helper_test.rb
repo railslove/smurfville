@@ -1,6 +1,6 @@
 require 'test_helper'
 
-module Smurf
+module Smurfville
   class StyleguideHelperTest < ActionView::TestCase
   end
 end
