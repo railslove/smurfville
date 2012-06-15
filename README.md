@@ -58,7 +58,7 @@ Add an initializer to your Rails project in which you tell Smurfville where it c
     # config/initializers/smurfville.rb
 
     if defined?(Smurfville) != nil
-      Smurf.sass_directory = Rails.root.join('app', 'assets', 'stylesheets').to_s
+      Smurfville.sass_directory = Rails.root.join('app', 'assets', 'stylesheets').to_s
     end
     
 Mount the `Smurfville::Engine` in your routes:
@@ -66,7 +66,7 @@ Mount the `Smurfville::Engine` in your routes:
     # config/routes.rb
 
     if defined?(Smurfville) != nil
-      mount Smurfvill::Engine => "/smurfville"
+      mount Smurfville::Engine => "/smurfville"
     end
     
 Restart your server and you should be able to access the SMURF pages, e.g. `yourapp.com/smurfville/colors`
