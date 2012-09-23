@@ -11,13 +11,32 @@ class ColorVariablesTest < ActiveSupport::TestCase
     variable_counts = [
       ["$green",   2],
       ["$white",   2],
-      ["$special", 3],
+      ["$special", 4],
       ["$foo",     nil]
     ]
 
     variable_counts.each do |count_pair|
       assert_equal count_pair[1], parser.variable_usage[count_pair[0]]
     end
+  end
+
+  test "parse_sass_file" do
+    parser = Smurfville::ColorVariableParser.new
+    parser.parse_sass_file "#{File.dirname(__FILE__)}/sass/colors_01.sass"
+
+    assert_equal({
+      "#008000" => ["$green"],
+      "#ffffff" => ["$white", "$another-white"],
+      "#000000" => ["$black"],
+      "shade($special, 10%)" => ["$function-generated"]
+    }, parser.colors)
+
+    assert_equal({
+      "$white" => ["$light-color"],
+      "$black" => ["$dark-color"],
+      "$green" => ["$special"],
+      "$special" => ["$more_special"]
+    }, parser.variable_mappings)
   end
 
   test "print_variable_usage_count_for" do
@@ -48,5 +67,13 @@ class ColorVariablesTest < ActiveSupport::TestCase
     invalid_colors.each do |color|
       assert_equal false, Smurfville::ColorVariableParser.parse_color(color)
     end
+  end
+
+  test 'is_sass_color_function?' do
+    # real sass color functions
+    assert  Smurfville::ColorVariableParser.is_sass_color_function?("tint(#ccc, 27%)")
+    assert  Smurfville::ColorVariableParser.is_sass_color_function?("shade($other-color, 0%)")
+    # other expressions
+    assert !Smurfville::ColorVariableParser.is_sass_color_function?("13px + 37px")
   end
 end

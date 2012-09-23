@@ -10,7 +10,7 @@ class NavigationTest < ActionDispatch::IntegrationTest
   end
 
   test "colors" do
-    get "/smurfville"
+    get "/smurfville/colors"
 
     assert_response :success
     assert_tag :ul, attributes: { class: "smurfville-color-list" }

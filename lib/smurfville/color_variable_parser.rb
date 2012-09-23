@@ -33,6 +33,9 @@ module Smurfville
           if color = Smurfville::ColorVariableParser.parse_color(value)
             (self.colors[color.html] ||= []) << variable_name
 
+          elsif Smurfville::ColorVariableParser.is_sass_color_function?(value)
+            (self.colors[value] ||= []) << variable_name
+
           elsif value.start_with? "$"
             (self.variable_mappings[value] ||= []) << variable_name
 
@@ -58,13 +61,19 @@ module Smurfville
 
     def self.parse_color(color)
       return false  unless color.is_a? String
-      
+
       if color.include? "#"
         Color::RGB.from_html(color) rescue false
       elsif Color::CSS[color]
         Color::CSS[color]
       else
         false
+      end
+    end
+
+    def self.is_sass_color_function?(value)
+      ["shade", "tint", "mix", "lighten", "darken", "saturate", "desaturate"].any? do |function|
+        value.include?("#{function}(")
       end
     end
   end
