@@ -79,6 +79,8 @@ Mount the `Smurfville::Engine` in your routes:
     
 Restart your server and you should be able to access the SMURF pages, e.g. `yourapp.com/smurfville/colors`
 
+## Screenshot
+
 Here is a screenshot of how a very simple living color styleguide will look like:
 
 ![Smurfville screenshot](https://raw.github.com/wiki/railslove/smurfville/images/smurfville_styleguide_screenshot.png)
