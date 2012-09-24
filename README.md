@@ -3,14 +3,20 @@ Smurfville
 
 Smurfville is the home of SMURF:  **S**calable, **M**odular, re**U**sable **R**ails **F**rontends
 
+SMURF is a new and modular approach to Rails frontend development based on the [SMACSS](http://smacss.com) approach for CSS.  It is mainly comprised of 2 parts:
+
+1. [SMURF Philosopy](#smurf-philosophy) describing a modular approach an establishing coding conventions
+2. [Smurfville Gem](#smurfville-gem) aid in following the SMURF conventions by rendering a nice "living styleguide"
+
 ![SMURF](https://github.com/railslove/smurfville/raw/master/app/assets/images/smurfville/smurf.png)
 
 [![Build Status](https://secure.travis-ci.org/railslove/smurfville.png?branch=master)](http://travis-ci.org/railslove/smurfville)
 
-The name and the philosophy of SMURF are heavily influenced by the [SMACSS](http://smacss.com) approach by Jonathan Snook ([@snookca](https://twitter.com/snookca)) which stands for Scalable Modular Architecture for CSS.
 
 
 # SMURF Philosophy
+
+The name and the philosophy of SMURF are heavily influenced by the [SMACSS](http://smacss.com) approach by Jonathan Snook ([@snookca](https://twitter.com/snookca)) which stands for Scalable Modular Architecture for CSS.
 
 These are the main goals behind SMURF:
 
@@ -29,16 +35,18 @@ As a first step, our SMURF gem can already render a living styleguide of all the
 
 An example for a similar tool could be [kss-rails](https://github.com/dewski/kss-rails)
 
-## Goal 3: Developing modules in the browser
+----
 
-Once we have a tool to easily render all our modules, the next step is to add the ability to write/change/tweak them right within the browser. This would have the advantage that you could open the module editor in different browsers to directly account for x-browser differences and you don't have to hit reload again to see the effect of your changes to the frontend code. One could see it as an equivalent for vim+tmux+autotest for frontend development.
-
-(technology ideas: [voyage-editor](http://voyage-editor.herokuapp.com/), [cloud9](http://c9.io), [fivetastic](https://github.com/makevoid/fivetastic))
+There is also a 3rd goal about [in-browser module development](https://github.com/railslove/smurfville/wiki/Goal-3:-in-browser-module-development), but that is still some way ahaed in the future.
 
 
 # Smurfville Gem
 
-Currently the gem can parse your Sass files and display all the color variables your are using in a nice styleguide.
+## Status
+
+The gem is currently able to parse your Sass files and display all the used color variables (e.g. `$primary-color`) in a nice styleguide.
+
+Future goals include extracting typography information and rendering SMRUF modules.
 
 ## Prerequisites
 
@@ -70,3 +78,7 @@ Mount the `Smurfville::Engine` in your routes:
     end
     
 Restart your server and you should be able to access the SMURF pages, e.g. `yourapp.com/smurfville/colors`
+
+Here is a screenshot of how a very simple living color styleguide will look like:
+
+![Smurfville screenshot](https://raw.github.com/wiki/railslove/smurfville/images/smurfville_styleguide_screenshot.png)
