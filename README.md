@@ -37,7 +37,7 @@ An example for a similar tool could be [kss-rails](https://github.com/dewski/kss
 
 ----
 
-There is also a 3rd goal about [in-browser module development](https://github.com/railslove/smurfville/wiki/Goal-3:-in-browser-module-development), but that is still some way ahaed in the future.
+There is also a 3rd goal about [in-browser module development](https://github.com/railslove/smurfville/wiki/Goal-3:-in-browser-module-development), but that is still some way ahead in the future.
 
 
 # Smurfville Gem
