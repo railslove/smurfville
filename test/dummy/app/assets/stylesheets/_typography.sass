@@ -1,37 +1,54 @@
-$default-font-family: "Helvetica", "Arial", sans-serif
+// --- this doesn't really belong here ---
 
-// these could become important if we should decide to use compass vertical rhythm
-$relative-font-sizing : false
-$base-line-height     : 20px
+$text-color: black
 
-$small-font-size      : 11px
-$base-font-size       : 13px
-$big-font-size        : 15px
+// ---------------------------------------
 
-$input-field-font-size: $big-font-size
 
-$header-font-small    : 17px
-$header-font-default  : 18px
-$header-font-big      : 25px
-$header-font-gigantic : 36px
+// variables
+$headline-font-family: "Helvetica", "Arial", sans-serif
+$fliesstext-font-family: "Georgia", serif
 
-// styleguide_typography:
-//   mixin: "headline-text"
-//   params:
-//     "$font-size":  ["$header-font-small", "$header-font-default", "$header-font-big", "$header-font-gigantic"]
-//     "$font-color": ["$text-color", "$light-text-color"]
-=headline-text($font-size: $header-font-default, $font-color: $text-color)
-  font-family: $default-font-family
+$small-fliesstext-font-size: 11px
+$default-fliesstext-font-size: 13px
+$big-fliesstext-font-size: 15px
+
+$small-headline-font-size: 17px
+$default-headline-font-size: 18px
+$big-headline-font-size: 25px
+$gigantic-headline-font-size: 36px
+
+
+// mixins
+=headline-text($font-size: $default-headline-font-size, $line-height-factor: 1.2, $font-color: $text-color)
+  font-family: $headline-font-family
   font-weight: bold
   color: $font-color
   font-size: $font-size
+  line-height: $font-size * $line-height-factor
 
-// styleguide_typography:
-//   mixin: default-text
-//   params:
-//     "$font-size": ["$small-font-size", "$base-font-size", "$big-font-size"]
-//     "$font-color": ["$text-color", "$light-text-color"]
-=default-text($font-size: $base-font-size, $font-color: $text-color)
-  font-family: $default-font-family
+=fliesstext($font-size: $default-fliesstext-font-size, $line-height-factor: 1.4, $font-color: $text-color)
+  font-family: $fliesstext-font-family
   color: $font-color
   font-size: $font-size
+  line-height: $font-size * $line-height-factor
+
+
+
+// placeholder selectors
+%f-gigantic-headline
+  +headline-text($gigantic-headline-font-size)
+%f-big-headline
+  +headline-text($big-headline-font-size)
+%f-default-headline
+  +headline-text($default-headline-font-size)
+%f-small-headline
+  +headline-text($small-headline-font-size)
+
+%f-big-fliesstext
+  +fliesstext($big-fliesstext-font-size)
+%f-default-fliesstext
+  +fliesstext($default-fliesstext-font-size)
+%f-small-fliesstext
+  +fliesstext($small-fliesstext-font-size)
+

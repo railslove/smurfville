@@ -11,5 +11,13 @@ module Smurfville
         "black"
       end
     end
+
+    def typography_class(typography)
+      typography.gsub("%f-", "")
+    end
+
+    def typography_humanized(typography)
+      typography.gsub("%f-", "").gsub("-", " ")
+    end
   end
 end

@@ -1,0 +1,4 @@
+<% typographies.each do |typography| %>
+<%= ".#{typography_class(typography)}" %>
+  <%= "@extend #{typography}" %>
+<% end %>
