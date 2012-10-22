@@ -20,14 +20,14 @@ $gigantic-headline-font-size: 36px
 
 
 // mixins
-=headline-text($font-size: $default-headline-font-size, $line-height-factor: 1.2, $font-color: $text-color)
+@mixin headline-text($font-size: $default-headline-font-size, $line-height-factor: 1.2, $font-color: $text-color)
   font-family: $headline-font-family
   font-weight: bold
   color: $font-color
   font-size: $font-size
   line-height: $font-size * $line-height-factor
 
-=fliesstext($font-size: $default-fliesstext-font-size, $line-height-factor: 1.4, $font-color: $text-color)
+@mixin fliesstext($font-size: $default-fliesstext-font-size, $line-height-factor: 1.4, $font-color: $text-color)
   font-family: $fliesstext-font-family
   color: $font-color
   font-size: $font-size

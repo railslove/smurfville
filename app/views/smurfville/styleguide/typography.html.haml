@@ -1,10 +1,10 @@
 // ---- CSS ----
 :css
-  #{Sass::Engine.new(File.read("#{Rails.root}/app/assets/stylesheets/_typography.sass") + render("typography_classes", typographies: @typographies)).render}
+  #{Sass::Engine.new(File.read("#{Rails.root}/app/assets/stylesheets/_typography.sass") + render("typography_classes", typographies: @parser.typographies)).render}
 
 // ---- HTML ----
 
 .typography-list
-  - @typographies.each do |typography|
+  - @parser.typographies.each do |typography|
     .typographylist--item{class: typography_class(typography)}=  "#{typography_humanized(typography)}: The quick brown fox ..."
     %hr

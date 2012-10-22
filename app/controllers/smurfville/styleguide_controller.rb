@@ -14,9 +14,8 @@ module Smurfville
     end
 
     def typography
-      # @parser = Smurfville::TypographyParser.new
-      # @parser.parse
-      @typographies = ["%f-gigantic-headline", "%f-big-headline", "%f-default-headline", "%f-small-headline", "%f-big-fliesstext", "%f-default-fliesstext", "%f-small-fliesstext"]
+      @parser = Smurfville::TypographyParser.new
+      @parser.parse
     end
   end
 end
