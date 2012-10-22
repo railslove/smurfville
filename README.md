@@ -8,6 +8,8 @@ SMURF is a new and modular approach to Rails frontend development based on the [
 1. [SMURF Philosopy](#smurf-philosophy) describing a modular approach an establishing coding conventions
 2. [Smurfville Gem](#smurfville-gem) aid in following the SMURF conventions by rendering a nice "living styleguide"
 
+[SMURF presentation from ArrrrCamp 2012](http://smurf-presentation.herokuapp.com/)
+
 ![SMURF](https://github.com/railslove/smurfville/raw/master/app/assets/images/smurfville/smurf.png)
 
 [![Build Status](https://secure.travis-ci.org/railslove/smurfville.png?branch=master)](http://travis-ci.org/railslove/smurfville)
