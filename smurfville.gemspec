@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "color"
-  s.add_dependency "sass", "~> 3.1"
+  s.add_dependency "sass", "~> 3.2"
   s.add_dependency "rails", "~> 3.1"
   s.add_dependency "haml"
 end
