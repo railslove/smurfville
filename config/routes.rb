@@ -3,4 +3,5 @@ Smurfville::Engine.routes.draw do
 
   match "/colors" => "styleguide#colors"
   match "/typography" => "styleguide#typography"
+  match "/modules" => "styleguide#modules"
 end
