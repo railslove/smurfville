@@ -1,11 +1,11 @@
 %li.smurfville-color-var
   .smurfville-color-var--name
-    %strong= color_var
+    %strong= "$#{color_var}"
     %small= "(#{@parser.print_variable_usage_count_for(color_var)})"
 
   -if @parser.variable_mappings[color_var]
     %ul.smurfville-color-var--mappings
       -@parser.variable_mappings[color_var].each do |color_mapping|
         %li
-          = color_mapping
+          = "$#{color_mapping}"
           %small= "(#{@parser.print_variable_usage_count_for(color_mapping)})"

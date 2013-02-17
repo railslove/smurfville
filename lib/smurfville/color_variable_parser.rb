@@ -3,13 +3,14 @@ require "sass"
 
 module Smurfville
   class ColorVariableParser
-    attr_accessor :colors, :variable_mappings, :variable_usage, :sass_directory
+    attr_accessor :colors, :variable_mappings, :variable_usage, :sass_directory, :sass_env
 
     def initialize(sass_directory = Smurfville.sass_directory)
       @colors            = {}
-      @variable_mappings = {}
-      @variable_usage    = {}
+      @variable_mappings = {} # e.g. { '$white' => { '$light-color', '$light-background-color' }, $black => {...} }
+      @variable_usage    = {} # e.g. { 'white' => { :variables => ['light-color', 'text-color'] } :alternate_values => ['#fff', '#ffffff']}
       @sass_directory    = sass_directory
+      @sass_env          = Sass::Environment.new
     end
 
     def parse_sass_directory(directory = sass_directory)
@@ -24,31 +25,43 @@ module Smurfville
 
     # parses Sass file and returns hash with colors and variable_mappings (or false)
     def parse_sass_file(file, options = {})
-      Sass::Engine.for_file(file, options).to_tree.children.each do | node |
+      Sass::Engine.for_file(file, options).to_tree.children.each do |node|
         if node.kind_of? Sass::Tree::VariableNode
-          variable_node_parts = node.to_scss.split(":")
-          variable_name       = variable_node_parts[0]
-          value               = variable_node_parts[1].gsub(";", "").strip
+          if node.expr.is_a? Sass::Script::Color
+            add_color(node)
 
-          if color = Smurfville::ColorVariableParser.parse_color(value)
-            (self.colors[color.html] ||= []) << variable_name
+          elsif node.expr.is_a? Sass::Script::Funcall # if function call (e.g. lighten(#000, 20%)), try to resolve to color
+            resolved = node.expr.perform(sass_env) rescue false
 
-          elsif Smurfville::ColorVariableParser.is_sass_color_function?(value)
-            (self.colors[value] ||= []) << variable_name
+            if resolved.is_a? Sass::Script::Color
+              add_color(node, resolved.to_s)
+            end
 
-          elsif value.start_with? "$"
-            (self.variable_mappings[value] ||= []) << variable_name
-
+          elsif node.expr.is_a? Sass::Script::Variable
+            (self.variable_mappings[node.expr.name] ||= []) << node.name # add to variable mapping
           end
+
         end
       end
     end
 
+    # add found color to @colors
+    def add_color(node, key = nil)
+      key ||= node.expr.to_s
+
+      self.colors[key] ||= { :variables => [], :alternate_values => [] }
+      self.colors[key][:variables] << node.name
+
+      self.colors[key][:alternate_values] |= ([node.expr.to_sass, node.expr.inspect] - [key])
+    end
+
+    # count the usages of all the Sass variables
     def parse_variable_usage(file)
-      grep_output = `grep -iG "\$" #{file}`
+      grep_output = `grep -iG "\\$" #{file}`
       grep_output.each_line do |line|
         matches = line.scan(/\$[\w-]*/)
         matches.each do |match|
+          match.gsub!('$', '')
           self.variable_usage[match] ||= 0
           self.variable_usage[match] += 1
         end
@@ -57,24 +70,6 @@ module Smurfville
 
     def print_variable_usage_count_for(color)
       self.variable_usage[color] - 1  rescue 0
-    end
-
-    def self.parse_color(color)
-      return false  unless color.is_a? String
-
-      if color.include? "#"
-        Color::RGB.from_html(color) rescue false
-      elsif Color::CSS[color]
-        Color::CSS[color]
-      else
-        false
-      end
-    end
-
-    def self.is_sass_color_function?(value)
-      ["shade", "tint", "mix", "lighten", "darken", "saturate", "desaturate"].any? do |function|
-        value.include?("#{function}(")
-      end
     end
   end
 end

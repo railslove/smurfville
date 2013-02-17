@@ -1,10 +1,8 @@
--if @parser
+- if @parser
   %ul.smurfville-color-list
-    -@parser.colors.each do |color|
-      -color_value = color[0]
-      -color_vars = color[1]
-      %li{style: "background-color: #{color[0]}; color: #{foreground_color(color[0])}"}
-        .smurfville-html-color= color[0]
+    - @parser.colors.each do |color_key, color_hash|
+      %li{style: "background-color: #{color_key}; color: #{foreground_color(color_key)}"}
+        .smurfville-html-color{title: color_hash[:alternate_values].join(", ")}= color_key
         %ul
-          -color_vars.each do |color_var|
+          - color_hash[:variables].each do |color_var|
             = render partial: "color_var", locals: {color_var: color_var}
