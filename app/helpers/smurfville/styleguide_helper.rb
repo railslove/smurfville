@@ -5,7 +5,7 @@ module Smurfville
 
     # returns well readable, high-contrast foreground color ("black" or "white") based on passed background_color
     def foreground_color(background_color)
-      if color = Smurfville::ColorVariableParser.parse_color(background_color)
+      if color = (Color::RGB.from_html(background_color) rescue false) || color = Color::CSS[background_color]
         color.brightness > 0.5 ? "black" : "white"
       else
         "black"
