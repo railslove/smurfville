@@ -12,7 +12,9 @@ gem "rake"
 gem "better_errors"
 
 # for development
-gem "pry-debugger"
+group :development do
+  gem "pry-debugger"
+end
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
