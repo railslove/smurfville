@@ -67,7 +67,7 @@ Add an initializer to your Rails project in which you tell Smurfville where it c
 
     # config/initializers/smurfville.rb
 
-    if defined?(Smurfville) != nil
+    if defined?(Smurfville)
       Smurfville.sass_directory = Rails.root.join('app', 'assets', 'stylesheets').to_s
     end
     
@@ -75,7 +75,7 @@ Mount the `Smurfville::Engine` in your routes:
 
     # config/routes.rb
 
-    if defined?(Smurfville) != nil
+    if defined?(Smurfville)
       mount Smurfville::Engine => "/smurfville"
     end
     
