@@ -48,7 +48,7 @@ There is also a 3rd goal about [in-browser module development](https://github.co
 
 The gem is currently able to parse your Sass files and display all the used color variables (e.g. `$primary-color`) in a nice styleguide.
 
-Future goals include extracting typography information and rendering SMRUF modules.
+Future goals include extracting typography information and rendering SMURF modules.
 
 ## Prerequisites
 
