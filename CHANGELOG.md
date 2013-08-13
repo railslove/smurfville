@@ -1,3 +1,7 @@
+## 0.1.1
+
+* rails 4 compatibility
+
 ## 0.1.0
 
 * Refactoring of `ColorVariableParser` to be closer to Sass
