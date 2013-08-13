@@ -1,6 +1,6 @@
 Smurfville::Engine.routes.draw do
   root :to => "styleguide#colors"
 
-  match "/colors" => "styleguide#colors"
-  match "/typography" => "styleguide#typography"
+  get "/colors" => "styleguide#colors"
+  get "/typography" => "styleguide#typography"
 end
