@@ -86,3 +86,7 @@ Restart your server and you should be able to access the SMURF pages, e.g. `your
 Here is a screenshot of how a very simple living color styleguide will look like:
 
 ![Smurfville screenshot](https://raw.github.com/wiki/railslove/smurfville/images/smurfville_styleguide_screenshot.png)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/railslove/smurfville/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
