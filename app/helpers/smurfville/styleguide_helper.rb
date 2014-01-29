@@ -1,4 +1,4 @@
-require "color/css"
+require "color"
 
 module Smurfville
   module StyleguideHelper

@@ -12,7 +12,7 @@ module Smurfville
       # bright colors
       assert_equal "black", foreground_color("#efefef")
       assert_equal "black", foreground_color("white")
-      assert_equal "black", foreground_color("red")
+      assert_equal "white", foreground_color("red")
 
       # non-colors
       # => black = default
