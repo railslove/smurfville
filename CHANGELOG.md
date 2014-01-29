@@ -1,3 +1,7 @@
+## 0.1.2
+
+* updated dependencies to make gem work with color gem version 1.5.x
+
 ## 0.1.1
 
 * rails 4 compatibility
